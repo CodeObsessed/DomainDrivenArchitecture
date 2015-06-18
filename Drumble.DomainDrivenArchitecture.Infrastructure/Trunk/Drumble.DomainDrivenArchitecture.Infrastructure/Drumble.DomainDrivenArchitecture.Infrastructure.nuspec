@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Drumble.DomainDrivenArchitecture.Infrastructure</id>
+    <version>$version$</version>
+    <title>Drumble.DomainDrivenArchitecture.Infrastructure</title>
+    <authors>WhereIsMyTransport</authors>
+    <owners>WhereIsMyTransport</owners>
+    <description>$description$</description>
+    <language>en-US</language>
+    <projectUrl>http://nuget.Drumble.co.za</projectUrl>
+    <iconUrl>http://pud-linux.sourceforge.net/icon/blockdevice.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <copyright>Copyright 2014</copyright>
+  </metadata>
+</package>

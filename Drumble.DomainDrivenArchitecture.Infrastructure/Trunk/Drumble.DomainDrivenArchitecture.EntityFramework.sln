@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drumble.DomainDrivenArchitecture.EntityFramework", "Drumble.DomainDrivenArchitecture.Infrastructure\Drumble.DomainDrivenArchitecture.EntityFramework.csproj", "{C67438E5-8015-4777-AADB-410220A215F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{97175AF7-DB9F-4178-B2D7-7B7B4CD74601}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGetPackage.bat = .nuget\NuGetPackage.bat
+		.nuget\NuGetPush.bat = .nuget\NuGetPush.bat
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{C064EDD2-2AA6-4495-866B-9458C028AED8}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://whereismytransport.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = Drumble.DomainDrivenArchitecture.Infrastructure\\Drumble.DomainDrivenArchitecture.EntityFramework.csproj
+		SccProjectName0 = Drumble.DomainDrivenArchitecture.Infrastructure
+		SccLocalPath0 = Drumble.DomainDrivenArchitecture.Infrastructure
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = TestConsole\\TestConsole.csproj
+		SccProjectName2 = TestConsole
+		SccLocalPath2 = TestConsole
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C67438E5-8015-4777-AADB-410220A215F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C67438E5-8015-4777-AADB-410220A215F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C67438E5-8015-4777-AADB-410220A215F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C67438E5-8015-4777-AADB-410220A215F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C064EDD2-2AA6-4495-866B-9458C028AED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C064EDD2-2AA6-4495-866B-9458C028AED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C064EDD2-2AA6-4495-866B-9458C028AED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C064EDD2-2AA6-4495-866B-9458C028AED8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DDArchTest2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Stop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StopHub">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HubName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StopId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_StopHub_Stop">
+          <End Role="Stop" Type="Self.Stop" Multiplicity="1" />
+          <End Role="StopHub" Type="Self.StopHub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StopHub">
+              <PropertyRef Name="StopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DDArchTest2ModelStoreContainer">
+          <EntitySet Name="Stop" EntityType="Self.Stop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StopHub" EntityType="Self.StopHub" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_StopHub_Stop" Association="Self.FK_StopHub_Stop">
+            <End Role="Stop" EntitySet="Stop" />
+            <End Role="StopHub" EntitySet="StopHub" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DDArchTest2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StopEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="StopHubs" Relationship="Self.FK_StopHub_Stop" FromRole="Stop" ToRole="StopHub" />
+        </EntityType>
+        <EntityType Name="StopHubEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="HubName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StopId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Stop" Relationship="Self.FK_StopHub_Stop" FromRole="StopHub" ToRole="Stop" />
+        </EntityType>
+        <Association Name="FK_StopHub_Stop">
+          <End Role="Stop" Type="DDArchTest2Model.StopEntity" Multiplicity="1" />
+          <End Role="StopHub" Type="DDArchTest2Model.StopHubEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StopHub">
+              <PropertyRef Name="StopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DDArchTest2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StopEntities" EntityType="DDArchTest2Model.StopEntity" />
+          <EntitySet Name="StopHubEntities" EntityType="DDArchTest2Model.StopHubEntity" />
+          <AssociationSet Name="FK_StopHub_Stop" Association="Self.FK_StopHub_Stop">
+            <End Role="Stop" EntitySet="StopEntities" />
+            <End Role="StopHub" EntitySet="StopHubEntities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DDArchTest2ModelStoreContainer" CdmEntityContainer="DDArchTest2Entities">
+          <EntitySetMapping Name="StopEntities">
+            <EntityTypeMapping TypeName="DDArchTest2Model.StopEntity">
+              <MappingFragment StoreEntitySet="Stop">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StopHubEntities">
+            <EntityTypeMapping TypeName="DDArchTest2Model.StopHubEntity">
+              <MappingFragment StoreEntitySet="StopHub">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HubName" ColumnName="HubName" />
+                <ScalarProperty Name="StopId" ColumnName="StopId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
